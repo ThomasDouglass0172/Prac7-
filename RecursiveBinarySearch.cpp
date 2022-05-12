@@ -1,28 +1,36 @@
 #include "RecursiveBinarySearch.h"
+#include <vector>
+#include <iostream>
 using namespace std; 
 
 
 bool RecursiveBinarySearch::search(vector<int> list , int x){
-int length = list.size(); 
-int n=(size/2+1); 
-
-return BinarySearch(vector<int> list,int  x, int n, int size);
+int right=list.size()-1; 
+int left=0; 
+return BinarySearch(list, left, right,x);
+cout<<endl;
 }
 
 
-bool BinarySearch(vector<int> list,int  x, int n, int size){  //splits the vector in 2 and figures out if it is left right or ontop of the correct value
+bool RecursiveBinarySearch::BinarySearch(vector<int> list,int  left, int right, int x){  //splits the vector in 2 and figures out if it is left right or ontop of the correct value
 
- if (x==list[(size-n)]){
-     return true; 
- }
- if (x>list[(size-n)]){
-    n=n+(size/4); 
-    size=(size/2);
-    return BinarySearch(vector<int> list,int  x, int n, int size); 
-     }
-if (x<list[(size-n)]){
-    n=n-(size/4); 
-    size=(size/2);
-    return BinarySearch(vector<int> list,int  x, int n, int size); 
+
+    int mid=(left + right)/2;
+
+    if(left<=right)
+    {
+        if (list[mid] == x)
+        {
+        return true;
+        }
+        else if  (list[mid] >x){
+            return BinarySearch(list,left,mid -1, x);
+        }
+        else{
+            return BinarySearch(list,mid+1,right, x);
+        }
+    }
+    return false;
 }
- }
+
+ 

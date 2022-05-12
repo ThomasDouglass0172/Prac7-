@@ -1,20 +1,19 @@
 #include "QuickSort.h"
-#include <vectors>
+#include <vector>
+#include <iostream>
 using namespace std; 
 
 vector<int> QuickSort::sort(vector<int> list){
-
+cout<<"here"<<endl;
 int start=0; 
 int end=list.size()-1; 
-
-innersort(list,start,end); 
-
-    return Mylist; 
+vector<int> Plist=list; 
+vector<int> output=innersort(Plist,start,end); 
+    return output; 
 }
 
 
-int QuickSort::parting(vector<int> list, int start, int end){
-	
+int QuickSort::parting(vector<int> &list, int start, int end){
     int pivot = end;
 
     if (list.size()>3){
@@ -24,7 +23,7 @@ int QuickSort::parting(vector<int> list, int start, int end){
 	int j = start;
 	for(int i=start;i<end;++i){  
 		if(list[i]<list[pivot]){
-			swap(list[i],list[j]);
+			swap(list[i],list[j]);  
 			++j;
 		}
 	}
@@ -33,20 +32,12 @@ int QuickSort::parting(vector<int> list, int start, int end){
 	
 }
 
-void QuickSort::innersort(vector<int> list, int start, int end){
-
+vector<int> QuickSort::innersort(vector<int> &list, int start, int end){
+    if(start<end){
 int p= parting(list,start,end); 
 innersort(list,start,p-1);
 innersort(list,p+1,end);
-
-setList(list); 
-
+    }
+    return list; 
 }
 
-void QuickSort::setList(vector<int> list){
-    Mylist=list; 
-}
-
-vector<int> QuickSort::getList(){
-    return Mylist; 
-}

@@ -30,17 +30,20 @@ int lengthB= Bsequence.size();
         //cout<<Bsequence[i]; 
     }
 
-bool answer=RBS.search(sequence, 1); 
-cout<<answer; 
 
 
 vector<int> Qsequence=Quicky.sort(sequence); 
 int lengthQ= Qsequence.size(); 
+
+bool answer=RBS.search(Qsequence, 1); 
+cout<<answer; 
+
+
+
     for (int i; i<lengthQ; i++){
     
         cout<<" "<<Qsequence[i]; 
     }
-
 
 
 

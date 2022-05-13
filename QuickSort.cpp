@@ -4,7 +4,6 @@
 using namespace std; 
 
 vector<int> QuickSort::sort(vector<int> list){
-cout<<"here"<<endl;
 int start=0; 
 int end=list.size()-1; 
 vector<int> Plist=list; 

@@ -36,8 +36,12 @@ vector<int> Qsequence=Quicky.sort(sequence);
 int lengthQ= Qsequence.size(); 
 
 bool answer=RBS.search(Qsequence, 1); 
-cout<<answer; 
-
+if (answer==1){
+    cout<<"true"; 
+}
+else{
+    cout<<"false"; 
+}
 
 
     for (int i; i<lengthQ; i++){
